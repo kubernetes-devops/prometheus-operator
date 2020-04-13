@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: kube-system
+  name: kube-proxy
+  labels:
+    k8s-app: kube-proxy
+spec:
+#  selector:
+#    component: kube-proxy
+  type: ClusterIP
+  clusterIP: None
+  ports:
+  - name: http-metrics
+    port: 10249
+    targetPort: 10249
+    protocol: TCP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  labels:
+    k8s-app: kube-proxy
+  name: kube-proxy
+  namespace: kube-system
+subsets:
+- addresses:
+  - ip: 200.200.100.71
+  - ip: 200.200.100.72
+  - ip: 200.200.100.73
+  - ip: 200.200.100.74
+  ports:
+  - name: http-metrics
+    port: 10249
+    protocol: TCP
+

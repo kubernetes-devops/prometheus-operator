@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: monitoring
+  name: prometheus-ingress
+spec:
+  rules:
+  - host: k8s.grafana.com
+    http:
+      paths:
+      - backend:
+          serviceName: grafana
+          servicePort: 3000
+  - host: k8s.prometheus.com
+    http:
+      paths:
+      - backend:
+          serviceName: prometheus-k8s
+          servicePort: 9090
+  - host: k8s.alertmanager.com
+    http:
+      paths:
+      - backend:
+          serviceName: alertmanager-main
+          servicePort: 9093

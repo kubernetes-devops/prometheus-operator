@@ -25,10 +25,10 @@ metadata:
   namespace: kube-system
 subsets:
 - addresses:
-  - ip: 200.200.100.71
-  - ip: 200.200.100.72
-  - ip: 200.200.100.73
-  - ip: 200.200.100.74
+  - ip: 192.168.100.71
+  - ip: 192.168.100.72
+  - ip: 192.168.100.73
+  - ip: 192.168.100.74
   ports:
   - name: http-metrics
     port: 10249

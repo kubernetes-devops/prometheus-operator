@@ -32,11 +32,11 @@ metadata:
     k8s-app: etcd
 subsets:
 - addresses:
-  - ip: 200.200.100.71
+  - ip: 192.168.100.71
     nodeName: etcd00
-  - ip: 200.200.100.72
+  - ip: 192.168.100.72
     nodeName: etcd01
-  - ip: 200.200.100.73
+  - ip: 192.168.100.73
     nodeName: etcd02
   ports:
   - name: port
